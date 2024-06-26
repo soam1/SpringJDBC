@@ -17,9 +17,11 @@ public class App {
         StudentDao studentDao = context.getBean("studentDao", StudentDao.class);
 
 //        insert query
-        int result = studentDao.insert(new Student("33", "Raj", "Pune"));
-        System.out.println("students inserted:   " + result);
+//        int result = studentDao.insert(new Student("33", "Raj", "Pune"));
+//        System.out.println("students inserted:   " + result);
 
 
+        int result2 = studentDao.updateStudent(new Student("33", "Raj", "Mumbai"));
+        System.out.println("students updated:   " + result2);
     }
 }
