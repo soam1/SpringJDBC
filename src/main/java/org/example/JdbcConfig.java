@@ -3,6 +3,7 @@ package org.example;
 import org.example.dao.StudentDao;
 import org.example.dao.StudentDaoImpl;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -10,6 +11,7 @@ import javax.sql.DataSource;
 
 @Configuration
 
+@ComponentScan(basePackages = "org.example.dao")
 public class JdbcConfig {
     @Bean("studentDao")
     public StudentDao studentDao() {
