@@ -45,19 +45,18 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public List<Student> getAllStudents() {
-//        String query = "select * from student";
-//        List<Student> students = getJdbcTemplate().query(query, new RowMapper<Student>() {
-//            @Override
-//            public Student mapRow(ResultSet resultSet, int i) throws SQLException {
-//                Student student = new Student();
-//                student.setId(resultSet.getString(1));
-//                student.setName(resultSet.getString(2));
-//                student.setCity(resultSet.getString(3));
-//                return student;
-//            }
-//        });
-//        return students;
-        return null;
+        String query = "select * from student";
+        List<Student> students = getJdbcTemplate().query(query, new RowMapper<Student>() {
+            @Override
+            public Student mapRow(ResultSet resultSet, int i) throws SQLException {
+                Student student = new Student();
+                student.setId(resultSet.getString(1));
+                student.setName(resultSet.getString(2));
+                student.setCity(resultSet.getString(3));
+                return student;
+            }
+        });
+        return students;
     }
 
     @Override
