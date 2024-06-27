@@ -2,7 +2,10 @@ package org.example.dao;
 
 import org.example.entities.Student;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class StudentDaoImpl implements StudentDao {
@@ -26,11 +29,34 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public Student getStudent(int id) {
-        return null;
+        String query = "select * from student where id=?";
+        Student student = getJdbcTemplate().queryForObject(query, new RowMapper<Student>() {
+            @Override
+            public Student mapRow(ResultSet resultSet, int i) throws SQLException {
+                Student student = new Student();
+                student.setId(resultSet.getString(1));
+                student.setName(resultSet.getString(2));
+                student.setCity(resultSet.getString(3));
+                return student;
+            }
+        }, id);
+        return student;
     }
 
     @Override
     public List<Student> getAllStudents() {
+//        String query = "select * from student";
+//        List<Student> students = getJdbcTemplate().query(query, new RowMapper<Student>() {
+//            @Override
+//            public Student mapRow(ResultSet resultSet, int i) throws SQLException {
+//                Student student = new Student();
+//                student.setId(resultSet.getString(1));
+//                student.setName(resultSet.getString(2));
+//                student.setCity(resultSet.getString(3));
+//                return student;
+//            }
+//        });
+//        return students;
         return null;
     }
 

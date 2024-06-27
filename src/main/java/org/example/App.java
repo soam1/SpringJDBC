@@ -24,7 +24,10 @@ public class App {
 //        int result2 = studentDao.updateStudent(new Student("33", "Raj", "Mumbai"));
 //        System.out.println("students updated:   " + result2);
 
-        int result3 = studentDao.deleteStudent(33);
-        System.out.println("students deleted:   " + result3);
+//        int result3 = studentDao.deleteStudent(33);
+//        System.out.println("students deleted:   " + result3);
+
+        Student student = studentDao.getStudent(1);
+        System.out.println(student);
     }
 }
