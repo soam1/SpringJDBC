@@ -4,6 +4,7 @@ import org.example.dao.StudentDao;
 import org.example.dao.StudentDaoImpl;
 import org.example.entities.Student;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -15,7 +16,8 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
 //        System.out.println( "Hello World!" );
-        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+//        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfig.class);
         StudentDao studentDao = context.getBean("studentDao", StudentDao.class);
 
 //        insert query
